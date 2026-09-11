@@ -18,7 +18,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
+from wormhole_sciml.dynamics import velocity_bounds
 from wormhole_sciml.phase_b_orbits import evaluate_saved_orbit_x_u_xi
+from wormhole_sciml.physics_gate import experiment_parameters
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,6 +44,11 @@ ERROR_GROWTH_SOURCE = (
     / "direct_vs_recursive_rollouts"
     / "tables"
     / "per_k_metrics.csv"
+)
+LOCAL_ENERGY_ROLLOUT_SOURCE = (
+    OUTPUT
+    / "model_a_x_xi_energy_microcore40k_comparison"
+    / "energy_xi_rollout_arrays.npz"
 )
 
 
@@ -81,6 +88,104 @@ def build_reference_geometry() -> Path:
     fig.suptitle("Exact trajectory-family geometry")
     fig.tight_layout()
     destination = FIGURES / "stress_reference_x_xi.png"
+    _finish(fig, destination)
+    return destination
+
+
+def _add_physical_corridor(axis: plt.Axes) -> None:
+    wormhole, spiral = experiment_parameters()
+    position = np.linspace(-17.0, 17.0, 1001)
+    lower, upper = velocity_bounds(position, wormhole, spiral)
+    axis.fill_between(
+        position,
+        lower,
+        upper,
+        color="#dce6ef",
+        alpha=0.55,
+        label="Timelike region",
+    )
+    axis.plot(position, lower, color="#718096", linewidth=0.9)
+    axis.plot(position, upper, color="#718096", linewidth=0.9)
+
+
+def build_local_energy_rollouts() -> Path:
+    seed_colors = {101: "#2878b5", 202: "#e6861a", 303: "#8f63c7"}
+    with np.load(require(LOCAL_ENERGY_ROLLOUT_SOURCE), allow_pickle=False) as data:
+        reference_state = np.asarray(data["u_th_0p05__exact_full_state"])
+        reference_coordinates = np.asarray(
+            data["u_th_0p05__exact_full_coordinates"]
+        )
+        predicted = {
+            seed: (
+                np.asarray(
+                    data[
+                        f"u_th_0p05__full__fixed_E0__seed_{seed}__physical_state"
+                    ]
+                ),
+                np.asarray(
+                    data[
+                        f"u_th_0p05__full__fixed_E0__seed_{seed}__coordinates"
+                    ]
+                ),
+            )
+            for seed in seed_colors
+        }
+
+    fig, axes = plt.subplots(1, 2, figsize=(11.8, 4.8))
+    _add_physical_corridor(axes[0])
+    axes[0].plot(
+        reference_state[:, 0],
+        reference_state[:, 1],
+        color="black",
+        linewidth=2.2,
+        label="Numerical reference",
+    )
+    axes[1].plot(
+        reference_coordinates[:, 0],
+        reference_coordinates[:, 1],
+        color="black",
+        linewidth=2.2,
+        label="Numerical reference",
+    )
+
+    for seed, color in seed_colors.items():
+        physical_state, coordinates = predicted[seed]
+        axes[0].plot(
+            physical_state[:, 0],
+            physical_state[:, 1],
+            color=color,
+            linewidth=1.6,
+            label=f"Seed {seed}",
+        )
+        axes[1].plot(
+            coordinates[:, 0],
+            coordinates[:, 1],
+            color=color,
+            linewidth=1.6,
+            label=f"Seed {seed}",
+        )
+
+    axes[0].set(
+        title="Recursive rollout in physical phase space",
+        xlabel=r"position $x$",
+        ylabel=r"radial velocity $u$",
+        xlim=(-17.4, 17.4),
+    )
+    axes[1].set(
+        title="Recursive rollout in normalized phase space",
+        xlabel=r"position $x$",
+        ylabel=r"normalized velocity $\xi$",
+        xlim=(-17.4, 17.4),
+        ylim=(-0.37, 0.025),
+    )
+    for axis in axes:
+        axis.grid(alpha=0.18)
+    axes[1].legend(fontsize=8.1, loc="lower right", frameon=False)
+    fig.suptitle(
+        r"Fixed-energy local model on the difficult $u_{\rm th}=0.05$ orbit"
+    )
+    fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.93))
+    destination = FIGURES / "local_energy_input_rollouts_u_th_0p05.png"
     _finish(fig, destination)
     return destination
 
@@ -177,7 +282,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--only",
-        choices=("all", "geometry", "finite-time", "error-growth"),
+        choices=(
+            "all",
+            "geometry",
+            "local-energy",
+            "finite-time",
+            "error-growth",
+        ),
         default="all",
         help="build one figure family instead of the complete README set",
     )
@@ -185,6 +296,7 @@ def main() -> None:
     FIGURES.mkdir(parents=True, exist_ok=True)
     builders = {
         "geometry": build_reference_geometry,
+        "local-energy": build_local_energy_rollouts,
         "finite-time": build_finite_time_reference,
         "error-growth": build_direct_vs_recursive,
     }

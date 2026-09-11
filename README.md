@@ -50,9 +50,17 @@ It changes the mean one-step \(\Delta\xi\) RMSE only from
 \(3.37\times10^{-5}\) to \(3.20\times10^{-5}\), but reduces the mean absolute
 recursive \(\xi\) error on nine difficult incoming rollouts from
 \(2.70\times10^{-2}\) to \(1.48\times10^{-3}\), while changing full-rollout
-physical exits from 1/21 to 0/21. The later energy-normal and
-sensitivity-aware losses improved their intended local diagnostics but did
-not improve this decisive recursive result.
+physical exits from 1/21 to 0/21.
+
+![Fixed-energy local-model rollouts for the difficult u_th=0.05 orbit](figures/local_energy_input_rollouts_u_th_0p05.png)
+
+*Exact and recursively predicted trajectories for the difficult
+\(u_{\rm th}=0.05\) orbit. All three independently trained fixed-energy models
+remain inside the timelike region and complete the traversal; the normalized
+phase-space view makes their remaining near-throat spread visible.*
+
+The later energy-normal and sensitivity-aware losses improved their intended
+local diagnostics but did not improve this decisive recursive result.
 
 The selected alternative predicts finite-time evolution directly from an
 exact anchor. It learns an average rate for \(x\) and a saturating,
@@ -61,7 +69,7 @@ time-rescaled target for \(\xi\):
 $$
 \widehat{\Delta x}=s\widehat V_x,
 \qquad
-\widehat{\Delta\xi}=-5\operatorname{expm1}(-s/5)\widehat F_\xi.
+\widehat{\Delta\xi}=5\left(1-e^{-s/5}\right)\widehat F_\xi.
 $$
 
 Both gates vanish at \(s=0\), so the identity map is exact by construction.

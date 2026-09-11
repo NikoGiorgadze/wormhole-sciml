@@ -71,7 +71,7 @@ where \(s\geq0\) is elapsed physical time.  The selected representation uses
 $$
 V_x=\frac{\Delta x}{s},\qquad
 F_\xi=\frac{\Delta\xi}{g(s)},\qquad
-g(s)=-5\operatorname{expm1}(-s/5).
+g(s)=5\left(1-e^{-s/5}\right).
 $$
 
 At inference,

@@ -59,15 +59,16 @@ confirmed on that test split.
 ## Regenerating public figures
 
 `scripts/build_public_figures.py` reads retained experiment outputs and writes
-only the compact images committed under `figures/`.  The difficult
-finite-time trajectory comes from the selected seed-202 checkpoint, and the
-horizon plot compares that direct model with the selected seed-101
-fixed-energy local model on the common-survivor cohort.
+only the compact images committed under `figures/`. The local rollout figure
+shows all three fixed-energy seeds on the difficult \(u_{\rm th}=0.05\) orbit.
+The difficult finite-time trajectory comes from the selected seed-202
+checkpoint, and the horizon plot compares that direct model with the selected
+seed-101 fixed-energy local model on the common-survivor cohort.
 
-The strongest local-rollout report figure is deliberately not frozen here yet.
-Once the scientific report is written, its existing trajectory-and-energy
-graphic will be regenerated as two separately titled panels, with a tighter
-energy-axis range and no internal sampling terminology in the titles.
+The README freezes the trajectory-only local comparison. The separate report
+trajectory-and-energy graphic will be regenerated as two individually titled
+panels, with a tighter energy-axis range and no internal sampling terminology
+in the titles.
 
 ## Storage policy
 

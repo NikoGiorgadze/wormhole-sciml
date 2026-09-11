@@ -11,7 +11,7 @@ an archive of every development experiment.
 | Selected scripts in `scripts/` | Essential for reproducibility | Reconstruct the retained progression from physics through local and finite-time models to the sealed test. |
 | `tests/` | Essential for reproducibility | Checks the independent physics identities, coordinate round trip, numerical integration, model parameter counts and interfaces, exact identity, differentiation, and tangent/normal decomposition. |
 | `results/` compact CSV/JSON files | Essential for claim traceability | Supports numerical claims without publishing row-level predictions. |
-| `figures/` | Useful supporting material | Gives a small visual account of trajectory geometry, finite-time prediction, and horizon-dependent direct-versus-recursive behavior. |
+| `figures/` | Useful supporting material | Gives a small visual account of trajectory geometry, fixed-energy local rollouts, finite-time prediction, and horizon-dependent direct-versus-recursive behavior. |
 | `docs/` | Essential for reproducibility | Fixes conventions, definitions, terminology, generation order, selection rules, and the release boundary. |
 | Final scientific-report PDF | Essential scientific narrative | Provides the complete study design, results, qualifications, and interpretation linked from the top of the README. |
 | Development-only scripts omitted by `.gitignore` | Useful only historically | Earlier 500-epoch runs, redundant raw-coordinate/energy trials, contact sheets, and narrow postmortems helped development but do not define retained claims. |
@@ -20,10 +20,11 @@ an archive of every development experiment.
 
 ## Figure policy
 
-The README displays three figures: transformed trajectory-family geometry, an
-actual difficult-family finite-time prediction, and direct-versus-recursive
-error growth.  Ranking bars and multi-metric dashboards are excluded.  Extra
-report figures should be committed only when they carry spatial, temporal, or
+The README displays four figures: transformed trajectory-family geometry,
+fixed-energy local rollouts for the difficult family, an actual
+difficult-family finite-time prediction, and direct-versus-recursive error
+growth. Ranking bars and multi-metric dashboards are excluded. Extra report
+figures should be committed only when they carry spatial, temporal, or
 geometric structure that a short table cannot replace.
 
 The signed local-error map, exact-state restart diagnostic, final local
