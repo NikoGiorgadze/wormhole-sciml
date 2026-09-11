@@ -28,8 +28,8 @@ timelike velocity corridor.
 ![Exact trajectory families in transformed phase space](figures/stress_reference_x_xi.png)
 
 Exact orbit families in the physically normalized $(x,\xi)$ phase space.
-Their incoming compression makes the difficult low-$u_{\rm th}$ families a
-sensitive test of learned dynamics.
+Their incoming compression makes the difficult families with low
+$u_{\rm th}$ a sensitive test of learned dynamics.
 
 ## Scientific progression
 
@@ -94,14 +94,15 @@ Horizon-dependent RMSE for the selected direct finite-time model and the
 strongest retained recursive local model. Only trajectories valid for both
 evaluations at each horizon are compared.
 
-The remaining finite-time error is concentrated in difficult
-low-$u_{\rm th}$, long-horizon, and rapid-change regions. A tangent/orbit-normal
-decomposition shows that the lowest-family displacement is predominantly
-along the exact orbit, with a smaller nonzero normal component. Derivative
-loss gives a modest validation improvement but does not remove this structure.
-A parameter-count-controlled late split-head model likewise does not improve
-the defining difficult-family residual; it is a negative result about that
-specific late-branching design, not about output specialization in general.
+The remaining finite-time error is concentrated in difficult trajectories
+with low $u_{\rm th}$, long horizons, and rapid-change regions. A
+tangent/orbit-normal decomposition shows that the lowest-family displacement
+is predominantly along the exact orbit, with a smaller nonzero normal
+component. Derivative loss gives a modest validation improvement but does not
+remove this structure. A parameter-count-controlled late split-head model
+likewise does not improve the defining difficult-family residual; it is a
+negative result about that specific late-branching design, not about output
+specialization in general.
 
 ## Repository map
 
