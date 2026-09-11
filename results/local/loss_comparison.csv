@@ -1,0 +1,4 @@
+treatment,all_validation_normal_rms,all_validation_energy_mae,u_th_0p05_throat_velocity_mae,full_rollout_reaches,full_rollout_physical_exits,scientific_status
+ordinary_standardized_mse,0.006318091,0.001697625,0.0149316,21,0,selected_local_baseline
+energy_normal,0.005422247,0.001312743,0.03919,20,1,validation_target_improved_but_recursive_result_worsened
+sensitivity_aware,0.006437443,0.001501470,0.0160705,20,1,targeted_subsets_improved_but_recursive_result_not_improved

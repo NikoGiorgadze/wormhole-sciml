@@ -1,0 +1,4 @@
+split,parent_orbits,finite_time_rows,rows_per_orbit
+train,4096,393216,96
+validation,1024,98304,96
+test,1024,98304,96

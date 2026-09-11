@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it and the associated particle-dynamics paper."
+title: "A Scientific Machine Learning Study of Particle Dynamics in the Generalised Ellis–Bronnikov Wormhole"
+type: software
+version: 0.2.0
+date-released: 2026-09-11
+repository-code: "https://github.com/NikoGiorgadze/wormhole-sciml"
+authors:
+  - family-names: Giorgadze
+    given-names: N.
+license: MIT
+preferred-citation:
+  type: article
+  title: "Dynamics of a particle in the generalised Ellis–Bronnikov wormhole on the rotating Archimede's spiral"
+  authors:
+    - family-names: Giorgadze
+      given-names: N.
+    - family-names: Osmanov
+      given-names: Z. N.
+  journal: Physica Scripta
+  volume: 99
+  issue: 2
+  year: 2024
+  doi: 10.1088/1402-4896/ad17ab

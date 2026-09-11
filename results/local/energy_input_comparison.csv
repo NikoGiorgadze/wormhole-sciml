@@ -1,0 +1,8 @@
+metric,no_energy,fixed_conserved_energy,interpretation
+one_step_delta_x_rmse,0.0001173199,0.0001331896,seed_mean
+one_step_delta_xi_rmse,0.00003372292,0.00003195096,seed_mean
+full_rollout_reaches,20,21,out_of_21
+full_rollout_physical_exits,1,0,out_of_21
+hard_family_mean_absolute_recursive_xi_error,0.02695156,0.001483453,nine_rollouts
+mean_maximum_pre_throat_relative_energy_drift,0.107906,0.010893,seven_families_three_seeds
+u_th_0p05_throat_velocity_mae,0.02814,0.01493,three_seeds

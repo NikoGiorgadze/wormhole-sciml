@@ -1,0 +1,22 @@
+{
+  "public_name": "fixed-conserved-energy local residual model",
+  "mapping": "(x, xi, E0) -> (delta_x, delta_xi)",
+  "step": 0.2,
+  "architecture": [3, 32, 32, 2],
+  "activation": "tanh",
+  "output_activation": "linear",
+  "parameter_count": 1250,
+  "training_rows": 40000,
+  "validation_rows": 8000,
+  "seeds": [101, 202, 303],
+  "selected_seed": 101,
+  "selected_checkpoint_sha256": "54a41a54a7fa20e931df0dd987ac871786d4ac8d02e71bd3560e9ebc3228a4a6",
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 512,
+  "maximum_epochs": 1500,
+  "early_stopping_patience": 40,
+  "loss": "equal two-component standardized mean-squared error",
+  "selection": "minimum physical validation MSE within the frozen three-seed experiment",
+  "source": "output/model_a_x_xi_energy_microcore40k_comparison/energy_xi_training_manifest.json"
+}
