@@ -27,9 +27,9 @@ timelike velocity corridor.
 
 ![Exact trajectory families in transformed phase space](figures/stress_reference_x_xi.png)
 
-*Exact orbit families in the physically normalized $(x,\xi)$ phase space.
+Exact orbit families in the physically normalized $(x,\xi)$ phase space.
 Their incoming compression makes the difficult low-$u_{\rm th}$ families a
-sensitive test of learned dynamics.*
+sensitive test of learned dynamics.
 
 ## Scientific progression
 
@@ -54,10 +54,10 @@ physical exits from 1/21 to 0/21.
 
 ![Fixed-energy local-model rollouts for the difficult u_th=0.05 orbit](figures/local_energy_input_rollouts_u_th_0p05.png)
 
-*Exact and recursively predicted trajectories for the difficult
+Exact and recursively predicted trajectories for the difficult
 $u_{\rm th}=0.05$ orbit. All three independently trained fixed-energy models
 remain inside the timelike region and complete the traversal; the normalized
-phase-space view makes their remaining near-throat spread visible.*
+phase-space view makes their remaining near-throat spread visible.
 
 The later energy-normal and sensitivity-aware losses improved their intended
 local diagnostics but did not improve this decisive recursive result.
@@ -76,9 +76,9 @@ Both gates vanish at $s=0$, so the identity map is exact by construction.
 
 ![Direct finite-time prediction for the difficult u_th=0.05 orbit](figures/finite_time_reference_u_th_0p05.png)
 
-*The selected seed-202 time-rescaled model evaluated directly from an exact
+The selected seed-202 time-rescaled model evaluated directly from an exact
 incoming anchor. Position, normalized velocity, and phase-space geometry are
-shown for the difficult $u_{\rm th}=0.05$ reference orbit.*
+shown for the difficult $u_{\rm th}=0.05$ reference orbit.
 
 On the 98,304-row validation set, the selected direct model has RMSE 0.0667 in
 $x$ and 0.00308 in $\xi$; dense validation finds no predicted
@@ -90,9 +90,9 @@ advantage is not sustained.
 
 ![Direct and recursive horizon-dependent error](figures/direct_vs_recursive_error_growth.png)
 
-*Horizon-dependent RMSE for the selected direct finite-time model and the
+Horizon-dependent RMSE for the selected direct finite-time model and the
 strongest retained recursive local model. Only trajectories valid for both
-evaluations at each horizon are compared.*
+evaluations at each horizon are compared.
 
 The remaining finite-time error is concentrated in difficult
 low-$u_{\rm th}$, long-horizon, and rapid-change regions. A tangent/orbit-normal
