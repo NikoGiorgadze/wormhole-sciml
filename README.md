@@ -8,6 +8,11 @@ workflows, tests, aggregate results, and a small set of trajectory-centered
 figures. Large generated arrays and intermediate experiment archives are not
 part of the release.
 
+> **Full scientific report:** [Open PDF](reports/SCIENTIFIC_ML_WORMHOLE_REPORT.pdf) · [Download PDF](https://raw.githubusercontent.com/NikoGiorgadze/wormhole-sciml/main/reports/SCIENTIFIC_ML_WORMHOLE_REPORT.pdf)
+
+The PDF is the authoritative source for the study design, numerical results,
+qualifications, and scientific interpretation.
+
 The physical system is a useful controlled learning problem. Its motion is
 low-dimensional and accurately integrable, but the admissible radial-velocity
 interval changes with position and dynamically distinct orbit families become
@@ -102,6 +107,7 @@ specific late-branching design, not about output specialization in general.
   provenance.
 - `docs/` fixes physical conventions, variables, model definitions, historical
   terminology, release scope, and reproduction instructions.
+- `reports/` contains the versioned full scientific-report PDF.
 - `figures/` contains only the small public visual set.
 
 Internal filenames containing `phase_b`, `phase_c`, `hybrid`, or `microcore`
@@ -147,9 +153,8 @@ The associated physical reference is N. Giorgadze and Z. N. Osmanov,
 rotating Archimede's spiral*, **Physica Scripta 99**, 025001 (2024),
 [doi:10.1088/1402-4896/ad17ab](https://doi.org/10.1088/1402-4896/ad17ab).
 
-The scientific report is in preparation and will be added after its figures
-and tables are finalized. The current release is the code-and-evidence
-companion, not a draft-report archive.
+The full scientific report is versioned with this code-and-evidence companion.
+Intermediate report drafts and the private experiment archive remain excluded.
 
 ## License and citation
 

@@ -13,9 +13,10 @@ an archive of every development experiment.
 | `results/` compact CSV/JSON files | Essential for claim traceability | Supports numerical claims without publishing row-level predictions. |
 | `figures/` | Useful supporting material | Gives a small visual account of trajectory geometry, finite-time prediction, and horizon-dependent direct-versus-recursive behavior. |
 | `docs/` | Essential for reproducibility | Fixes conventions, definitions, terminology, generation order, selection rules, and the release boundary. |
+| Final scientific-report PDF | Essential scientific narrative | Provides the complete study design, results, qualifications, and interpretation linked from the top of the README. |
 | Development-only scripts omitted by `.gitignore` | Useful only historically | Earlier 500-epoch runs, redundant raw-coordinate/energy trials, contact sheets, and narrow postmortems helped development but do not define retained claims. |
 | Generated datasets, checkpoints, histories, dense arrays, and per-row tables | Unnecessary for the public release | They are large, reproducible, and less useful than the generators plus compact summaries. |
-| Draft reports and private references | Unnecessary for the public release | The final report will carry the scientific narrative; drafts and source archives are not release artifacts. |
+| Draft reports and private references | Unnecessary for the public release | The versioned final PDF carries the scientific narrative; drafts and source archives are not release artifacts. |
 
 ## Figure policy
 

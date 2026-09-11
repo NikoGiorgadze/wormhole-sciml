@@ -13,7 +13,8 @@ __pycache__/
 
 # Generated scientific artifacts and local archives
 /output/
-/reports/
+/reports/*
+!/reports/SCIENTIFIC_ML_WORMHOLE_REPORT.pdf
 /references/
 /legacy/
 /tmp/
